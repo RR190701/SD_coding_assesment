@@ -47,7 +47,6 @@ const Profile = (props) => {
           </div>
                
                <div  className = "username">{localStorage.getItem("username")}</div>
-               <div className = "role">{role}</div>
 
         </div>
       </Box>
