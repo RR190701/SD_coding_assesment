@@ -17,7 +17,6 @@ exports.AddComment = async(req, res, next) => {
        
       });
       
-    console.log(username, comment, fileName);
   
       res.status(200).json({
         success: true,

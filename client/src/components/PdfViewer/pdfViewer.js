@@ -21,7 +21,6 @@ export default class PDFViewer extends Component {
 				const { data } = await axios.get(`/api/upload/viewFile/${localStorage.getItem("username")}/${this.props.match.params.pdfId}`, config);
 				
 		this.setState((state) => ({ access: true, pdfFile:data}));
-		console.log("files",pdfFile);
 			  
 			  } 
 			  catch (error) {

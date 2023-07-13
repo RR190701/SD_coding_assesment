@@ -4,7 +4,6 @@ const ErrorResponse = require("./../utils/errorResponse");
 
 exports.getPrivateData = async (req, res, next) => {
   const username = req.params.username;
-  console.log(username)
 
   if (!username) {
     //sending error
@@ -27,7 +26,6 @@ exports.getPrivateData = async (req, res, next) => {
     //sending error
     next(error);
   }
-  console.log(user);
   res.status(200).json({
     success: true,
     user

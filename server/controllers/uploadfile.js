@@ -1,4 +1,5 @@
 const fs = require('fs');
+var path = require('path')
 const UploadFile = require('../models/dataFiles');
 const User = require('../models/user');
 const ErrorResponse = require('./../utils/errorResponse');
@@ -7,7 +8,12 @@ exports.UploadFiles = async(req, res, next) => {
     const filename = Date.now() + "_" + req.files.myFile.name;
     const file = req.files.myFile;
     let uploadPath = __dirname + "/../public/images/" + filename;
-    console.log(filename);
+     const extension = path.extname(filename);
+
+     if(extension != ".pdf"){
+      return next(new ErrorResponse("File is not PDF", 400));
+     }
+
     file.mv(uploadPath, (err) => {
       if (err) {
         return res.send(err);
@@ -67,7 +73,6 @@ exports.viewFile = async(req, res, next) => {
   const fileName = req.params.fileName;
    try{
    const user = await UploadFile.findOne({username, fileName});
-   console.log("file",user);
    if (!user) {
     //sending error
     return next(
@@ -99,7 +104,6 @@ exports.getAllSharedFiles = async(req, res, next) => {
    let files =[];
    try{
    files = await UploadFile.find({username, role:"FRIEND"});
-   console.log("friend",files);
    }
    catch(error){
              //sending error
@@ -116,7 +120,6 @@ exports.getAllSharedFiles = async(req, res, next) => {
 
 exports.shareFile = async(req, res, next) => {
   const { username, fileName} = req.body;
-  console.log(username, fileName)
   if (!username || !fileName) {
     //sending error
    return next(new ErrorResponse("please provide an (username/file)", 400));

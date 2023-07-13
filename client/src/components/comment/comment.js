@@ -33,7 +33,7 @@ const popError = (errorMessage) => {
             
             } 
             catch (error) {
-              console.log(error.response.data.error);
+              popError(error.response.data.error);
             }
           };
           

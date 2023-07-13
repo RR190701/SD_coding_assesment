@@ -28,6 +28,7 @@ export default function UploadFile() {
   }
 
   const handleClickOpen = () => {
+    setErrors("");
     setOpen(true);
   };
 
@@ -38,20 +39,22 @@ export default function UploadFile() {
 
 
   const uploadFile = async(e) => {
+     
     e.preventDefault();
+    if(file.type != "application/pdf"){
+      setErrors("Can upload PDF only");
+      return;
+    } 
     
     setErrors("");
     const formData = new FormData();
     formData.append("myFile", file);
     formData.append("username", localStorage.getItem("username"));
-    console.log(file);
-
     axios.post("/api/upload/uploadFile", formData, {
         headers: {
             Authorization: `Bearer ${localStorage.getItem("authToken")}`,
           },
       }).then((res) => {
-        console.log("Success ", res);
         setFile(null);
         toast.success("File Uploaded", {
             className :"success-toast",
@@ -60,7 +63,8 @@ export default function UploadFile() {
 
         handleClose();
       }).error((error) => {
-        popError(error.errorMessage);
+        console.log("error")
+        popError(error.response.data.error);
       });
 
 }
@@ -90,9 +94,10 @@ export default function UploadFile() {
     >    
     
 <input  className='upload-file' type = 'file' name= 'myFile' onChange={(e) => setFile(e.target.files[0])}></input>
+
     </Box>
    
-  {errors && <span>{errors}</span>}
+  {errors && <span style={{"color":"red", fontSize:"12px"}}>{errors}</span>}
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>

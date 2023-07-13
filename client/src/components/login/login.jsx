@@ -51,7 +51,6 @@ export default function SignInSide({history}) {
         {username, password },
         config
       );
-     console.log("data",data);
      localStorage.setItem("authToken", data.token);
      localStorage.setItem("username", username);
     } catch (error) {

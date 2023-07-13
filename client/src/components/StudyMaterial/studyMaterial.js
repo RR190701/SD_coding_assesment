@@ -29,13 +29,10 @@ const StudyMaterial = ({history}) => {
             },
           };
         try {
-              const { data } = await axios.get(`/api/upload/getAllFile/${localStorage.getItem("username")}`, config);
-              console.log("pdfs",data);   
-              setfiles(data.res);
+              const { data } = await axios.get(`/api/upload/getAllFile/${localStorage.getItem("username")}`, config);              setfiles(data.res);
             
             } 
             catch (error) {
-              console.log(error.response.data.error);
             }
           };
           
@@ -50,12 +47,10 @@ const StudyMaterial = ({history}) => {
             };
           try {
                 const { data } = await axios.get(`/api/upload/getAllSharedFile/${localStorage.getItem("username")}`, config);
-                console.log("pdfs",data);   
                 setSharedFiles(data.res);
               
               } 
               catch (error) {
-                console.log(error.response.data.error);
               }
             };
             

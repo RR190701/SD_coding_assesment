@@ -20,13 +20,10 @@ const Profile = (props) => {
         },
       };
     try {
-    //  console.log(Url)
           const { data } = await axios.get(`/api/private/profile/${localStorage.getItem("username")}`, config);
-          console.log(data);  
           setRole(data.user.role);     
         
         } catch (error) {
-          console.log(error.response.data.error);
         }
       };
       fetchData();

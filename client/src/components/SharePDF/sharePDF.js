@@ -51,8 +51,6 @@ export default function SharePDF({fileName}) {
             {username, fileName },
             config
           );
-          console.log(data);    
-        
           toast.success("File Uploaded", {
             className :"success-toast",
             position:toast.POSITION.BOTTOM_RIGHT
