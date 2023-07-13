@@ -31,15 +31,14 @@ const useStyles = makeStyles((theme) => ({
     }));
   
 
-function ResponsiveDrawer(props) {
+function ResponsiveDrawer({window, history}) {
 const classes = useStyles();
-  const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const [role, setRole] = useState("");
+  const [isloggedIn, setLogged] = useState(true);
   const logoutHandler = () => {
     localStorage.removeItem("authToken");
     localStorage.removeItem("username");
-    props.history.push("/login");
+    setLogged(false);
    
   };
     useEffect(() => {
@@ -52,15 +51,15 @@ const classes = useStyles();
           };
         try {
               const { data } = await axios.get(`/api/private/profile/${localStorage.getItem("username")}`, config);
- 
-              setRole(data.user.role);     
+  
             
             } catch (error) {
-              //errot
+              //error
+              history.push("/");
             }
           };
           fetchData();
-        },[]);
+        },[isloggedIn]);
 
 
   const handleDrawerToggle = () => {

@@ -77,9 +77,9 @@ const popError = (errorMessage) => {
     <ToastContainer></ToastContainer>
     <h2 style={{fontWeight:"200px"}}>Comments</h2>
     <div className='comments'>
-      {comments && comments.map(({username,comment}) => (
+      {comments && comments.map(({_id, username,comment}) => (
         (username === localStorage.getItem("username"))?
-        <div className='owner-comment-wrapper'>
+        <div key={_id} className='owner-comment-wrapper'>
       <div className='owner-comment'>
            <span className='user-name'>{username}</span>
            <span className='user-comment'>{comment}</span>
@@ -87,7 +87,7 @@ const popError = (errorMessage) => {
 
       </div>
       :
-      <div className='comment-wrapper'>
+      <div key={_id} className='comment-wrapper'>
       <div className='friend-comment'>
            <span className='user-name'>{username}</span>
            <span className='user-comment'>{comment}</span>

@@ -10,7 +10,7 @@ import axios from "axios";
 import './style.css';
 import Box from '@mui/material/Box';
 
-export default function UploadFile() {
+export default function UploadFile({setfiles}) {
   const [open, setOpen] = React.useState(false);  
   const [errors, setErrors] = useState("");
   const [file, setFile] = useState("");
@@ -45,7 +45,6 @@ export default function UploadFile() {
       setErrors("Can upload PDF only");
       return;
     } 
-    
     setErrors("");
     const formData = new FormData();
     formData.append("myFile", file);
@@ -60,7 +59,7 @@ export default function UploadFile() {
             className :"success-toast",
             position:toast.POSITION.BOTTOM_RIGHT
           });
-
+     setfiles(prevFiles => [...prevFiles,{fileName: file.name}]);
         handleClose();
       }).error((error) => {
         console.log("error")

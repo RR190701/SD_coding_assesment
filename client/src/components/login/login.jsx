@@ -14,6 +14,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { ToastContainer,toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios";
+import { NavLink } from 'react-router-dom/cjs/react-router-dom';
 
 const theme = createTheme();
 
@@ -61,7 +62,6 @@ export default function SignInSide({history}) {
     }
     
     history.push("/profile");
-    return false;
   };
 
   return (
@@ -133,6 +133,7 @@ export default function SignInSide({history}) {
                 Sign In
               </Button>
             </Box>
+            <NavLink to = "/register"><a>Create an account </a></NavLink>
           </Box>
         </Grid>
       </Grid>

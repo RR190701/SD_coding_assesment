@@ -1,10 +1,10 @@
 const User = require('../models/user')
 const ErrorResponse = require('./../utils/errorResponse')
 exports.register = async(req, res, next) => {
-    const { username, password , role} = req.body;
+    const { username, password } = req.body;
 
 
-    if (!username||!password||!role) {
+    if (!username||!password) {
       //sending error
      return next(new ErrorResponse("please provide an (password/ username/role)", 400));
     }
@@ -13,7 +13,7 @@ exports.register = async(req, res, next) => {
       const user = await User.create({
         username,
         password,
-        role
+        role :'ADMIN'
        
       });
   

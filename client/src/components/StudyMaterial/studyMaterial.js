@@ -59,7 +59,7 @@ const StudyMaterial = ({history}) => {
     return (
         
         <Box sx={{ display: 'flex' }} >
-        <ResponsiveDrawer></ResponsiveDrawer> 
+        <ResponsiveDrawer history={history}></ResponsiveDrawer> 
         <Box
         component="main"
         sx = {{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
@@ -68,7 +68,7 @@ const StudyMaterial = ({history}) => {
     <Box component="div"
     sx={{display:"flex"}}>
       {(true)?(<>
-<UploadFile></UploadFile>
+<UploadFile setfiles = {setfiles}></UploadFile>
               </>
 
       ):null}
@@ -79,7 +79,7 @@ const StudyMaterial = ({history}) => {
 <h1 className='pdf-headings'>Owned PDFs</h1>
     <div className ="ownedPdf">
     {files.map(({fileName}) => (
-      <div className='owned-pdfs'>
+      <div className='owned-pdfs' key={fileName}>
       <div style={{"display":"flex","alignItems":"center"}}>
       <NavLink to={`/pdf/${fileName}`} style={{"color":"black","fontSize":"14px"}} >{fileName}</NavLink>
       </div>
@@ -94,7 +94,7 @@ const StudyMaterial = ({history}) => {
 <h1 className='pdf-headings'>Shared PDFs</h1>
     <div className ="ownedPdf" >
     {sharedFiles.map(({fileName}) => (
-      <div className='owned-pdfs'>
+      <div className='owned-pdfs' key={fileName}>
       <div style={{"display":"flex","alignItems":"center"}}>
       <NavLink to={`/pdf/${fileName}`} style={{"color":"black","fontSize":"14px"}} >{fileName}</NavLink>
       </div>

@@ -80,12 +80,6 @@ exports.viewFile = async(req, res, next) => {
     );
    }
 
-   var file = fs.createReadStream('./controllers/sample.pdf');
-   var stat = fs.statSync('./controllers/sample.pdf');
-   res.setHeader('Content-Length', stat.size);
-   res.setHeader('Content-Type', 'application/pdf');
-   res.setHeader('Content-Disposition', 'attachment; filename=quote.pdf');
-   file.pipe(res);
  
    }
    catch(error){
@@ -93,9 +87,9 @@ exports.viewFile = async(req, res, next) => {
      next(error);
    }
  
-  //  res.status(200).json({
-  //      success:true,
-  //  })
+   res.status(200).json({
+       success:true,
+   })
  
  }
 

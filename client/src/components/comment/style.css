@@ -1,6 +1,7 @@
 
 .comments {
     height: 200px;
+    width: 600px;
     border: solid rgb(175, 164, 164) 2px;
     background-color: rgb(235, 241, 246);
     margin-top: .5rem;

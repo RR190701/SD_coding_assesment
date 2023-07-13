@@ -9,7 +9,7 @@ import './style.css';
 const drawerWidth = 220;
 
 
-const Profile = (props) => {
+const Profile = ({history}) => {
   const[role, setRole] = useState("");
   useEffect(() => {
     const fetchData = async () => {
@@ -31,7 +31,7 @@ const Profile = (props) => {
     return (
         
         <Box sx={{ display: 'flex' }}>
-        <ResponsiveDrawer></ResponsiveDrawer> 
+        <ResponsiveDrawer history={history}></ResponsiveDrawer> 
         <Box
         component="main"
         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
