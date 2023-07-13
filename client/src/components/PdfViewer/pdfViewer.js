@@ -14,7 +14,7 @@ export default class PDFViewer extends Component {
 			  },
 			};
 		  try {
-				const { data } = await axios.get(`/api/upload/viewFile/${localStorage.getItem("username")}/${this.props.match.params.pdfId}`, config);
+				const { data } = await axios.get(`https://sd-backend-g1qt.onrender.com/api/upload/viewFile/${localStorage.getItem("username")}/${this.props.match.params.pdfId}`, config);
 				
 		this.setState((state) => ({ access: true,isloading:false}));
 			  

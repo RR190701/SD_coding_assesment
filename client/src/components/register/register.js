@@ -47,7 +47,7 @@ export default function Register({history}) {
 
     try {
       const { data } = await axios.post(
-        "/api/auth/register",
+        "https://sd-backend-g1qt.onrender.com/api/auth/register",
         {username, password },
         config
       );

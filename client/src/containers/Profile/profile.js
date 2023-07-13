@@ -20,7 +20,7 @@ const Profile = ({history}) => {
         },
       };
     try {
-          const { data } = await axios.get(`/api/private/profile/${localStorage.getItem("username")}`, config);
+          const { data } = await axios.get(`https://sd-backend-g1qt.onrender.com/api/private/profile/${localStorage.getItem("username")}`, config);
           setRole(data.user.role);     
         
         } catch (error) {

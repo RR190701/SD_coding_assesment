@@ -48,7 +48,7 @@ export default function SignInSide({history}) {
 
     try {
       const { data } = await axios.post(
-        "/api/auth/login",
+        "https://sd-backend-g1qt.onrender.com/api/auth/login",
         {username, password },
         config
       );

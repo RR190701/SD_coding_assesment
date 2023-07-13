@@ -28,7 +28,7 @@ const popError = (errorMessage) => {
             },
           };
         try {
-              const { data } = await axios.get(`/api/comment/getAllComments/${fileName}`, config);
+              const { data } = await axios.get(`https://sd-backend-g1qt.onrender.com/api/comment/getAllComments/${fileName}`, config);
                 setComments(data.res);
             
             } 
@@ -54,7 +54,7 @@ const popError = (errorMessage) => {
 
                  
                 const {data } = await axios.post(
-                  "/api/comment/addComment",
+                  "https://sd-backend-g1qt.onrender.com/api/comment/addComment",
                   {comment, username:localStorage.getItem("username"), fileName},
                   config
                 );   

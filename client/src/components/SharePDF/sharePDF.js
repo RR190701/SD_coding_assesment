@@ -47,7 +47,7 @@ export default function SharePDF({fileName}) {
       };
     try {
           const { data } = await axios.post(
-            "/api/upload/shareFile",
+            "https://sd-backend-g1qt.onrender.com/api/upload/shareFile",
             {username, fileName },
             config
           );

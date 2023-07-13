@@ -29,7 +29,7 @@ const StudyMaterial = ({history}) => {
             },
           };
         try {
-              const { data } = await axios.get(`/api/upload/getAllFile/${localStorage.getItem("username")}`, config);              setfiles(data.res);
+              const { data } = await axios.get(`https://sd-backend-g1qt.onrender.com/api/upload/getAllFile/${localStorage.getItem("username")}`, config);              setfiles(data.res);
             
             } 
             catch (error) {
@@ -46,7 +46,7 @@ const StudyMaterial = ({history}) => {
               },
             };
           try {
-                const { data } = await axios.get(`/api/upload/getAllSharedFile/${localStorage.getItem("username")}`, config);
+                const { data } = await axios.get(`https://sd-backend-g1qt.onrender.com/api/upload/getAllSharedFile/${localStorage.getItem("username")}`, config);
                 setSharedFiles(data.res);
               
               } 

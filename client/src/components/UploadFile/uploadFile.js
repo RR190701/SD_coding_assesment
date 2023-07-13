@@ -49,7 +49,7 @@ export default function UploadFile({setfiles}) {
     const formData = new FormData();
     formData.append("myFile", file);
     formData.append("username", localStorage.getItem("username"));
-    axios.post("/api/upload/uploadFile", formData, {
+    axios.post("https://sd-backend-g1qt.onrender.com/api/upload/uploadFile", formData, {
         headers: {
             Authorization: `Bearer ${localStorage.getItem("authToken")}`,
           },
