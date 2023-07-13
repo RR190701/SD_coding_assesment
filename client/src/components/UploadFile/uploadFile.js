@@ -57,6 +57,7 @@ export default function UploadFile() {
             className :"success-toast",
             position:toast.POSITION.BOTTOM_RIGHT
           });
+
         handleClose();
       }).error((error) => {
         popError(error.errorMessage);

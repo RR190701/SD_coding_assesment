@@ -2,15 +2,20 @@ const mongoose = require("mongoose");
 
 const fileSchema = new mongoose.Schema({
 
-    fileName: {
+    username: {
         type: String,
-        required:[true, "Please provide a file"],   
+        required:[true, "Please provide a username"],
+           
 
     },
-    username :{
+    role: {
         type:String,
-    }
-    
+        required:[true, "Please provide a role"],
+    },
+    fileName: {
+        type:String,
+        required:[true, "Please provide a filename"],
+    }, 
 
 });
 

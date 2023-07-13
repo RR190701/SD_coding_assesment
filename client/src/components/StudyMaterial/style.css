@@ -1,0 +1,29 @@
+.ownedPdf {
+    display: flex;
+    border: rgb(45, 241, 45) 2px solid;
+    max-width: 600px;
+    border-radius: 5px;
+    background-color: #a9ffa9;
+    max-height: 300px;
+    overflow-y: scroll;
+    justify-content: center;
+    flex-wrap: wrap;
+    min-height: 50px;
+
+}
+
+.owned-pdfs {
+    border: #4d4a4a 2px solid;
+    width: 95%;
+    margin: .5rem;
+     border-radius: 5px;
+    display: flex;
+    background-color: rgb(224, 215, 204);
+    justify-content: space-between;
+    padding: .5rem;
+}
+
+.pdf-headings {
+    font-size: 28px;
+    font-weight: 600;
+}

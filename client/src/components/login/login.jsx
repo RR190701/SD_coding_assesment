@@ -62,6 +62,7 @@ export default function SignInSide({history}) {
     }
     
     history.push("/profile");
+    return false;
   };
 
   return (

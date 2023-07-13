@@ -24,6 +24,7 @@ app.use(express.json());
 app.use('/api/auth', require('./routes/auth'))
 app.use("/api/private", require("./routes/private"));
 app.use('/api/upload', require("./routes/uploadfiles"));
+app.use('/api/comment', require("./routes/comment"));
 //error handler should be last peice of middleware
 app.use(errorHandler);
 

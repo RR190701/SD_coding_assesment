@@ -84,7 +84,7 @@ const classes = useStyles();
       <ListItem key="Study Material" disablePadding className ="listbutton">
         <NavLink to ="/studyMaterial">            
         <ListItemButton >
-              <ListItemText primary="Study Material" />
+              <ListItemText primary="Files" />
             </ListItemButton>
             </NavLink>
 

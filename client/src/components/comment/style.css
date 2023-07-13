@@ -1,0 +1,70 @@
+
+.comments {
+    height: 200px;
+    border: solid rgb(175, 164, 164) 2px;
+    background-color: rgb(235, 241, 246);
+    margin-top: .5rem;
+    overflow-y: scroll;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+.comment-wrapper{
+    display: flex;
+}
+.owner-comment-wrapper {
+    
+    display: flex;
+    flex-direction: row-reverse;
+}
+.friend-comment{
+    max-width:300px;
+    min-width: 100px;
+    padding: .5rem;
+    background-color: rgb(203, 203, 203);
+    display: flex;
+    flex-direction: column;
+    margin: .5rem;
+    border-radius: 5px;
+}
+.owner-comment{
+    max-width:300px;
+    min-width: 100px;
+    padding: .5rem;
+    background-color: rgb(161, 236, 255);
+    display: flex;
+    border: 1.5px solid rgb(165, 200, 241);
+    flex-direction: column;
+    margin: .5rem;
+    border-radius: 5px;
+}
+.user-name {
+    font-size: 12px;
+    color: rgb(54, 54, 54);
+    font-weight: 500;
+}
+.user-comment {
+    font-size: 13px;
+}
+.send-comment {
+    margin: .5rem 0 3rem ;
+    display: flex;
+    justify-content: space-between;
+
+}
+.send-comment > input {
+    width: 80%;
+    padding: .5rem;
+    border: solid rgb(175, 164, 164) 2px;
+    border-radius: 5px;
+}
+.send-comment > button {
+    width: 19%;
+    padding: .5rem;
+    border: solid rgb(23, 131, 41) 2px;
+    border-radius: 5px;
+    background-color: rgb(86, 222, 86);
+    font-weight: 700px;
+    font-size: 14px;
+    cursor: pointer;
+}
