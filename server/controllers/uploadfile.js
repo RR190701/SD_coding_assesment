@@ -16,7 +16,7 @@ exports.UploadFiles = async(req, res, next) => {
 
     file.mv(uploadPath, (err) => {
       if (err) {
-        return res.send(err);
+        //return next(err);
       }
     });
 
@@ -34,10 +34,10 @@ exports.UploadFiles = async(req, res, next) => {
 
        
       });
-  
+      
       res.status(200).json({
         success: true,
-        message:"File Uploaded successfully"
+        fileName:filename
       });
   
     } catch (error) {
