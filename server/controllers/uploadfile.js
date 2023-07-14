@@ -16,7 +16,7 @@ exports.UploadFiles = async(req, res, next) => {
 
     file.mv(uploadPath, (err) => {
       if (err) {
-        //return next(err);
+        return res.send(err);
       }
     });
 
@@ -34,9 +34,10 @@ exports.UploadFiles = async(req, res, next) => {
 
        
       });
-      
+  
       res.status(200).json({
         success: true,
+        message:"File Uploaded successfully",
         fileName:filename
       });
   
@@ -51,7 +52,7 @@ exports.UploadFiles = async(req, res, next) => {
 
 
 exports.getAllFiles = async(req, res, next) => {
- const username = req.params.username;
+ const {username} = req.body
   let files =[];
   try{
   files = await UploadFile.find({username, role:"OWNER"});
@@ -94,7 +95,7 @@ exports.viewFile = async(req, res, next) => {
  }
 
 exports.getAllSharedFiles = async(req, res, next) => {
-  const username = req.params.username;
+  const {username} = req.body
    let files =[];
    try{
    files = await UploadFile.find({username, role:"FRIEND"});
@@ -147,7 +148,7 @@ exports.shareFile = async(req, res, next) => {
     
         res.status(200).json({
           success: true,
-          message:"File Uploaded successfully"
+          message:"File Shared successfully"
         });
     
       } catch (error) {

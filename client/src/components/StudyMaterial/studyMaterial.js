@@ -2,12 +2,9 @@ import  React, {useEffect, useState} from 'react';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import ResponsiveDrawer from './../../components/Navbar/navbar';
-// import CardMedia from '@mui/material/CardMedia';
 import axios from "axios";
 import UploadFile from '../UploadFile/uploadFile';
 import './style.css';
-import Button from '@mui/material/Button';
-import PDFViewer from '../PdfViewer/pdfViewer';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import SharePDF from '../SharePDF/sharePDF';
 
@@ -29,7 +26,11 @@ const StudyMaterial = ({history}) => {
             },
           };
         try {
-              const { data } = await axios.get(`https://sd-backend-g1qt.onrender.com/api/upload/getAllFile/${localStorage.getItem("username")}`, config);              setfiles(data.res);
+              const { data } = await axios.post(`https://sd-backend-g1qt.onrender.com/api/upload/getAllFile`, 
+              {username:`${localStorage.getItem("username")}`}
+              ,config
+        );              
+              setfiles(data.res);
             
             } 
             catch (error) {
@@ -46,7 +47,9 @@ const StudyMaterial = ({history}) => {
               },
             };
           try {
-                const { data } = await axios.get(`https://sd-backend-g1qt.onrender.com/api/upload/getAllSharedFile/${localStorage.getItem("username")}`, config);
+                const { data } = await axios.post(`https://sd-backend-g1qt.onrender.com/api/upload/getAllSharedFile/${localStorage.getItem("username")}`,
+                {username:`${localStorage.getItem("username")}`},
+               config);
                 setSharedFiles(data.res);
               
               } 
