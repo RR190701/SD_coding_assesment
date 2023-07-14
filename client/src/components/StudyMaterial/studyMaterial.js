@@ -68,7 +68,7 @@ const StudyMaterial = ({history}) => {
     <Box component="div"
     sx={{display:"flex"}}>
       {(true)?(<>
-<UploadFile setfiles = {setfiles}></UploadFile>
+<UploadFile></UploadFile>
               </>
 
       ):null}

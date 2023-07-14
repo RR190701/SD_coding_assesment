@@ -10,7 +10,7 @@ import axios from "axios";
 import './style.css';
 import Box from '@mui/material/Box';
 
-export default function UploadFile({setfiles}) {
+export default function UploadFile(props) {
   const [open, setOpen] = React.useState(false);  
   const [errors, setErrors] = useState("");
   const [file, setFile] = useState("");
@@ -59,7 +59,7 @@ export default function UploadFile({setfiles}) {
             className :"success-toast",
             position:toast.POSITION.BOTTOM_RIGHT
           });
-     setfiles(prevFiles => [...prevFiles,{fileName: file.name}]);
+    
         handleClose();
       }).error((error) => {
         console.log("error")
