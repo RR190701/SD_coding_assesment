@@ -16,7 +16,7 @@ exports.UploadFiles = async(req, res, next) => {
 
     file.mv(uploadPath, (err) => {
       if (err) {
-        return res.send(err);
+        //return res.send(err);
       }
     });
 
@@ -52,7 +52,7 @@ exports.UploadFiles = async(req, res, next) => {
 
 
 exports.getAllFiles = async(req, res, next) => {
- const {username} = req.body
+ const username = req.user.username;
   let files =[];
   try{
   files = await UploadFile.find({username, role:"OWNER"});
@@ -114,10 +114,10 @@ exports.getAllSharedFiles = async(req, res, next) => {
  
 
 exports.shareFile = async(req, res, next) => {
-  const { username, fileName} = req.body;
-  if (!username || !fileName) {
+  const username = req.user.username;
+  if (!username) {
     //sending error
-   return next(new ErrorResponse("please provide an (username/file)", 400));
+   return next(new ErrorResponse("please provide an (username)", 400));
   }
   try {
     const user = await User.findOne({ username }).select("username");

@@ -26,9 +26,8 @@ const StudyMaterial = ({history}) => {
             },
           };
         try {
-              const { data } = await axios.post(`https://sd-backend-g1qt.onrender.com/api/upload/getAllFile`, 
-              {username:`${localStorage.getItem("username")}`}
-              ,config
+              const { data } = await axios.get(`https://sd-backend-g1qt.onrender.com/api/upload/getAllFile`, 
+              config
         );              
               setfiles(data.res);
             
@@ -47,8 +46,7 @@ const StudyMaterial = ({history}) => {
               },
             };
           try {
-                const { data } = await axios.post(`https://sd-backend-g1qt.onrender.com/api/upload/getAllSharedFile/${localStorage.getItem("username")}`,
-                {username:`${localStorage.getItem("username")}`},
+                const { data } = await axios.get(`https://sd-backend-g1qt.onrender.com/api/upload/getAllSharedFile`,
                config);
                 setSharedFiles(data.res);
               

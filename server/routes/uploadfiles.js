@@ -6,8 +6,8 @@ const { UploadFiles, getAllFiles, shareFile, getAllSharedFiles, viewFile } = req
 // const upload = multer({ dest: './public/data/uploads/' });
 
 router.route("/uploadFile").post(protect, UploadFiles);
-router.route("/getAllFile").post(protect, getAllFiles);
-router.route("/getAllSharedFile").post(protect, getAllSharedFiles);
+router.route("/getAllFile").get(protect, getAllFiles);
+router.route("/getAllSharedFile").get(protect, getAllSharedFiles);
 router.route("/viewFile/:username/:fileName").get(protect, viewFile);
 router.route("/shareFile").post(protect, shareFile );
 
